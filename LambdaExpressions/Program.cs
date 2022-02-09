@@ -28,11 +28,25 @@ namespace LambdaExpressions
             Func<int, int> multiplier = n => n * factor;
             var result = multiplier(16);
             Console.WriteLine(result);
+
+            var books = new BookRepo().BookList();
+            // var cheapBooks = books.FindAll(book => book.Price < 10);
+            var cheapBooks = books.FindAll(b => b.Price < 10);
+
+            foreach (var book in cheapBooks)
+            {
+                Console.WriteLine(book.Price);
+            }
         }
 
         //static int Square(int number)
         //{
         //    return number * number; 
+        //}
+
+        //static bool CheaperThan10Dollors(Book book)
+        //{
+        //    return book.Price < 10;
         //}
     }
 }
